@@ -1,0 +1,51 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:GetAuthorizationToken",
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Action": [
+                "ssm:GetParameters"
+            ],
+            "Resource": [
+                "arn:aws:ssm:ap-southeast-1:262038164402:parameter/*"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "secretsmanager:GetSecretValue"
+            ],
+            "Resource": [
+                "arn:aws:secretsmanager:ap-southeast-1:262038164402:secret:*"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:ap-southeast-1:262038164402:key/*"
+            ],
+            "Effect": "Allow"
+        }
+    ]
+}
